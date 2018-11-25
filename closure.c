@@ -99,7 +99,7 @@ int main()
  	 for(i=0;i<na;i++)
   	  for(j=0;j<na;j++)
   		  mat[i][j]=max(mat[i][j],mat[i][k]&&mat[k][j]);
-	//printf("transitive matrix is:");
+	// printf("transitive matrix is:");
 	// for(i=0;i<na;i++)
 	// {
 	// 	for(j=0;j<na;j++)
