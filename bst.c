@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-  
+
 struct node
 {
     int data;
@@ -16,73 +16,74 @@ struct node* createNode(int value)
     newNode->right = NULL;
     return newNode;
 }
-    
+
 struct node* insert(struct node* root, int data)
 {
-    if (root == NULL) return createNode(data);
+    if (root == NULL)
+     return createNode(data);
     if (data < root->data)
         root->left  = insert(root->left, data);
     else if (data > root->data)
-        root->right = insert(root->right, data);   
+        root->right = insert(root->right, data);
 }
 
-struct node* minValueNode(struct node* node) 
-{ 
-    struct node* current = node; 
-  
-    while (current->left != NULL) 
-        current = current->left; 
-  
-    return current; 
+struct node* minValueNode(struct node* node)
+{
+    struct node* current = node;
+
+    while (current->left != NULL)
+        current = current->left;
+
+    return current;
 }
 
-struct node* deleteNode(struct node* root, int data) 
-{ 
-    // base case 
-    if (root == NULL) return root; 
-  
-    if (data < root->data) 
-        root->left = deleteNode(root->left, data); 
-  
-    else if (data > root->data) 
-        root->right = deleteNode(root->right, data); 
-  
+struct node* deleteNode(struct node* root, int data)
+{
+    // base case
+    if (root == NULL) return root;
+
+    if (data < root->data)
+        root->left = deleteNode(root->left, data);
+
+    else if (data > root->data)
+        root->right = deleteNode(root->right, data);
+
     else
-    { 
+    {
 
-        if (root->left == NULL) 
-        { 
-            struct node *temp = root->right; 
-            free(root); 
-            return temp; 
-        } 
-        else if (root->right == NULL) 
-        { 
-            struct node *temp = root->left; 
-            free(root); 
-            return temp; 
-        } 
+        if (root->left == NULL)
+        {
+            struct node *temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if (root->right == NULL)
+        {
+            struct node *temp = root->left;
+            free(root);
+            return temp;
+        }
 
-        struct node* temp = minValueNode(root->right); 
-  
-        root->data = temp->data; 
-  
-        
-        root->right = deleteNode(root->right, temp->data); 
-    } 
-    return root; 
-} 
-  
+        struct node* temp = minValueNode(root->right);
+
+        root->data = temp->data;
+
+
+        root->right = deleteNode(root->right, temp->data);
+    }
+    return root;
+}
+
 void maxnode(struct node* root)
-{   
-    if(root->right  == NULL) 
+{
+    if(root->right  == NULL)
         printf("%d\n", root->data);
-    else 
+    else
         maxnode(root->right);
 }
 
 void inorder(struct node* root){
-    if(root == NULL) 
+    if(root == NULL)
         return;
     inorder(root->left);
     printf("%d ->", root->data);
@@ -90,7 +91,7 @@ void inorder(struct node* root){
 }
 
 void preorder(struct node* root){
-    if(root == NULL) 
+    if(root == NULL)
         return;
     printf("%d ->", root->data);
     preorder(root->left);
@@ -98,7 +99,7 @@ void preorder(struct node* root){
 }
 
 void postorder(struct node* root){
-    if(root == NULL) 
+    if(root == NULL)
         return;
     postorder(root->left);
     postorder(root->right);
@@ -141,10 +142,7 @@ int main()
         case 1:
             printf("insert data");
             scanf("%d",&data);
-            if(root==NULL)
-                root=insert(root,data);
-            else
-                insert(root,data);
+              root =  insert(root,data);
             break;
         case 2:
             inorder(root);
