@@ -14,7 +14,7 @@ int main()
 
 	while ((fscanf(fp, "%[^\n]%*c", line)) != EOF )
 	{
-		//  fgetc(stream); 
+		//  fgetc(line); 
 		printf("%s\n",line);
 	}
 							                                 
