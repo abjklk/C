@@ -11,16 +11,14 @@ struct mdt
  
 void main()
 {
-    char label[10],opcode[10],operand[10],newlabel[10],newoperand[10];
-    char macroname[10];
+    char label[20],opcode[20],operand[20],newlabel[20],newoperand[20];
+    char macroname[20];
     int i,lines;
     FILE *f1,*f2,*f3;
-    // clrscr();
     f1 = fopen("MACIN.txt","r");
     f2 = fopen("MACOUT.txt","w");
     f3 = fopen("MDT.txt","w");
     fscanf(f1,"%s\t%s\t%s",label,opcode,operand);
-   
     while(strcmp(opcode,"END")!=0)
     {
         if(strcmp(opcode,"MACRO")==0)
@@ -56,5 +54,4 @@ void main()
     fclose(f2);
     fclose(f3);
     printf("FINISHED");
-//     // getch();
 }

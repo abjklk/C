@@ -6,7 +6,11 @@ TEN	WORD	10
 .	Main	Program
 FIRST	STL	RETADR
 **	LDA	LENGTH
-**		ALPHA,BETA
+**	STA	&A1
+**	IF	(&A1EQ5)
+**	ADD	&A2
+**	ENDIF	**
+**	STA	GAMMA
 **	LDA	ALPHA
 **	ADD	FIVE
 **	STA	ALPHA

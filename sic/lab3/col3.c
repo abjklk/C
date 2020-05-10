@@ -14,11 +14,10 @@ int main()
     }
     char inbuf[200];    
     char *tok;
-   // int i=4096;
+   
     fo=fopen("col3.txt","w");
     while ((fscanf(fp, "%[^\n]%*c", inbuf)) != EOF )
 	{
-        
 		//  fgetc(stream); 
 		//printf("%s\n",inbuf);
         tok = strtok(inbuf," ");

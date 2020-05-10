@@ -95,7 +95,7 @@ int main()
 		printf("\n");
 	}
 	
-	for(k=0;k<na;k++) //Warshall's Algorithm used. Why? coz efficient.
+	for(k=0;k<na;k++) //Warshall's Algorithm.
  	 for(i=0;i<na;i++)
   	  for(j=0;j<na;j++)
   		  mat[i][j]=max(mat[i][j],mat[i][k]&&mat[k][j]);

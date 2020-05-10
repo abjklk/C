@@ -110,7 +110,7 @@ void child(struct node* root)
 {
     if(root==NULL)
         return;
-    if(root->left!=NULL && root->right!=NULL)
+    if(root->left==NULL && root->right==NULL)
     {
         printf("%d",root->data);
         return;
