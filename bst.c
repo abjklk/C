@@ -135,7 +135,7 @@ int main()
     int ch,data,sum;
      while(1)
     {
-        printf("choice:\n1.insert vertex\n2.inorder\n3.preorder\n4.postorder\n5.min\n6.max\n7.delete vertex\n8.child nodes\n9.sum\n");
+        printf("\n=================\nchoice:\n1.insert vertex\n2.inorder\n3.preorder\n4.postorder\n5.min\n6.max\n7.delete vertex\n8.child nodes\n9.sum\n==============\n");
         scanf("%d",&ch);
         switch (ch)
         {

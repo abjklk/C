@@ -5,32 +5,31 @@ struct node
 {
     int data;
     struct node* next;
-    struct node* prev;
+    // struct node* prev;
 };
 
-struct node* head = NULL;
-void addbeg(int data)
+void addbeg(struct node** head,int data)
 {
     struct node* newnode=(struct node*)malloc(sizeof(struct node));
     newnode->data=data;
-    if(head==NULL)
+    if(*head==NULL)
     {
         newnode->next=NULL;
-        newnode->prev=NULL;
-        head=newnode;
+        // newnode->prev=NULL;
+        *head=newnode;
     }
     else
     {
-        newnode->next=head;
-        newnode->prev=NULL;
-        head->prev=newnode;
-        head=newnode;
+        newnode->next=*head;
+        // newnode->prev=NULL;
+        // (*head)->prev=newnode;
+        (*head)=newnode;
     }
 }
 
-void display()
+void display(struct node** head)
 {
-    struct node* temp=head;
+    struct node* temp=*head;
     while (temp!=NULL)
     {
         printf("%d\t",temp->data);
@@ -39,24 +38,61 @@ void display()
 }
 
 
-void displayback()
-{
-    struct node* temp=head;
-    while (temp->next!=NULL)
-        temp=temp->next;
-    while(temp!=NULL)
-    {
-        printf("%d\t",temp->data);
-        temp=temp->prev;
+// void displayback(struct node** head)
+// {
+//     struct node* temp=*head;
+//     while (temp->next!=NULL)
+//         temp=temp->next;
+//     while(temp!=NULL)
+//     {
+//         printf("%d\t",temp->data);
+//         temp=temp->prev;
+//     }
+// }
+
+
+void prev(struct node** head){
+    if(*head == NULL){
+        return;
+    }else{
+        prev(&(*head)->next);
+        printf("%d ",(*head)->data);
     }
 }
 
+
+void rev(struct node** head){
+    struct node* prev = NULL;
+    struct node* cur = *head;
+    while(cur!=NULL){
+        struct node* next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    *head = prev;
+}
+
+void rev_d(struct node** head){
+    struct node* cur = *head;
+    while(cur){
+        struct node* next = cur->next;
+        cur->next = cur->prev;
+        cur->prev = next;
+        cur = cur->prev;
+    } 
+    *head = cur->p
+}
 int main()
 {
-    addbeg(5);
-    addbeg(4);
-    addbeg(3);
-    display();
+    struct node* head = NULL;
+    addbeg(&head,5);
+    addbeg(&head,4);
+    addbeg(&head,3);
+    display(&head);
     printf("\n");
-    displayback();
+    // displayback(&head);
+    rev(&head);
+    display(&head);
+
 }
