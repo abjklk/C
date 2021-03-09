@@ -160,6 +160,11 @@ int prime(int n){
     return 1;
 }
 
+int r(){
+    static int num = 7;
+    return num--;
+}
+
 int main(){
     // int x = 78;
     // tok();
@@ -188,9 +193,12 @@ int main(){
     //     ct+=1;
     // }    
 
-    int ap[10];
-    for(int i=0;i<10;i++){
-        printf("\n%d",ap[i]);
-    }
+    // int ap[10];
+    // for(int i=0;i<10;i++){
+    //     printf("\n%d",ap[i]);
+    // }
+
+    for(r();r();r())
+        printf("%d ",r());
 
 }  
